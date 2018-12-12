@@ -50,7 +50,7 @@ body,
       -ms-flex-direction: column;
           flex-direction: column;
   width: 720px;
-  height: 200px;
+  height: 240px;
 }
 
 #mainContainer h1 {
@@ -65,7 +65,7 @@ body,
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  height: 100px;
+  height: 140px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;

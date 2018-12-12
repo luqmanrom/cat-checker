@@ -40128,11 +40128,13 @@ var Form = function (_Component) {
 
 		var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
 
-		_this.state = { input: '' };
+		_this.state = { input: '', totalResults: 0, result: '', isSearchDone: false };
 
 		_this.onChange = _this.onChange.bind(_this);
 
 		_this.onSubmit = _this.onSubmit.bind(_this);
+
+		_this.onCancel = _this.onCancel.bind(_this);
 
 		return _this;
 	}
@@ -40145,29 +40147,58 @@ var Form = function (_Component) {
 	}, {
 		key: 'onSubmit',
 		value: function onSubmit(event) {
+			var _this2 = this;
+
 			event.preventDefault();
 
 			__WEBPACK_IMPORTED_MODULE_1__utils_request__["a" /* default */].post('/search', { input: this.state.input }).then(function (_ref) {
 				var data = _ref.data;
 
 
-				console.log(data.result);
-				alert("Request Success");
+				var totalResults = data.result.length;
+
+				var joinedResults = data.result.join(',');
+
+				_this2.setState({ isSearchDone: true, totalResults: totalResults, result: joinedResults });
 			}).catch(function () {
 
 				alert("Request failed");
 			});
 		}
 	}, {
+		key: 'onCancel',
+		value: function onCancel(event) {
+
+			event.preventDefault();
+
+			this.setState({ input: '', isSearchDone: false });
+		}
+	}, {
 		key: 'render',
 		value: function render() {
+			var _state = this.state,
+			    totalResults = _state.totalResults,
+			    result = _state.result,
+			    isSearchDone = _state.isSearchDone,
+			    input = _state.input;
+
+
 			return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 				'form',
 				{ onSubmit: this.onSubmit, id: 'form' },
+				isSearchDone && __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+					'p',
+					{ dusk: 'p-result' },
+					totalResults,
+					' results found: ',
+					result
+				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
 					null,
-					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { type: 'text', value: this.state.input, onChange: this.onChange })
+					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('input', { name: 'input', type: 'text', value: input, onChange: this.onChange,
+						dusk: 'input-box'
+					})
 				),
 				__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 					'div',
@@ -40179,7 +40210,7 @@ var Form = function (_Component) {
 					),
 					__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 						'button',
-						null,
+						{ onClick: this.onCancel },
 						'Cancel'
 					)
 				)

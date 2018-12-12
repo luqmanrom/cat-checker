@@ -6,11 +6,13 @@ export default class Form extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {input: ''};
+		this.state = {input: '', totalResults: 0, result: '', isSearchDone: false};
 
 		this.onChange = this.onChange.bind(this);
 
 		this.onSubmit = this.onSubmit.bind(this);
+
+		this.onCancel = this.onCancel.bind(this);
 
 	}
 
@@ -24,9 +26,12 @@ export default class Form extends Component {
 		request.post('/search', {input: this.state.input})
 			.then(({data}) => {
 
+				const totalResults = data.result.length;
 
-				console.log(data.result);
-				alert("Request Success");
+				const joinedResults = data.result.join(',');
+
+
+				this.setState({isSearchDone: true, totalResults: totalResults, result: joinedResults})
 
 			})
 			.catch(() => {
@@ -36,17 +41,31 @@ export default class Form extends Component {
 			});
 	}
 
+	onCancel(event) {
+
+		event.preventDefault();
+
+		this.setState({input: '', isSearchDone: false})
+	}
+
 	render () {
+
+		const {totalResults, result, isSearchDone, input} = this.state;
+
 		return (
 			<form onSubmit={this.onSubmit} id="form">
 
+				{isSearchDone && <p dusk="p-result">{totalResults} results found: {result}</p>}
+
 				<div>
-					<input type="text" value={this.state.input} onChange={this.onChange} />
+					<input name='input' type="text" value={input} onChange={this.onChange}
+						dusk="input-box"
+					/>
 				</div>
 
 				<div id='buttonForm'>
 					<button type="submit" value="Submit"> Submit </button>
-					<button>Cancel</button>
+					<button onClick={this.onCancel}>Cancel</button>
 
 				</div>
 
