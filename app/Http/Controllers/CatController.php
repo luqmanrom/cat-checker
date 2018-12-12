@@ -11,7 +11,7 @@ class CatController extends Controller
 
 		$request = request()->all();
 
-		preg_match_all('/[a-zA-Z]+cat/', $request['input'], $matches);
+		preg_match_all('/\b[a-zA-Z\-]+cat\b/', $request['input'], $matches);
 
 		return response()->json([
 			'result' => $matches[0]
