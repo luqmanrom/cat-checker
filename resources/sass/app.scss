@@ -1,0 +1,132 @@
+// Defining values
+$screen-sm-min: 768px;
+$screen-xs-max: ($screen-sm-min - 1);
+$screen-md-min: 992px;
+$screen-sm-max: ($screen-md-min - 1);
+$screen-lg-min: 1200px;
+$screen-md-max: ($screen-lg-min - 1);
+
+
+html, body, #app {
+  height: 100%;
+  width: 100%;
+
+}
+
+
+#parentContainer {
+  background-color: #333333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+  flex-direction: column;
+
+
+  img {
+    position: relative;
+    top: 80px;
+    left: 305px;
+  }
+}
+
+
+#mainContainer {
+  background-color: #FEEA3A;
+  box-shadow: rgba(0,0,0,0.5) 0 0 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 720px;
+  height: 200px;
+
+  h1 {
+    font-family: 'Sofia', cursive;
+  }
+
+}
+
+
+
+#form {
+  display: flex;
+  flex-direction: column;
+  height: 100px;
+  justify-content: space-evenly;
+
+  input {
+    width: 600px;
+    padding: 10px;
+    font-size: 15px;
+    box-shadow: rgba(0,0,0,0.5) 0 0 10px;
+    border: none;
+    font-family: 'Quicksand', sans-serif;
+
+  }
+
+
+}
+
+#buttonForm {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-around;
+  width: 200px;
+  align-self: flex-end;
+
+
+  button {
+    background-color: #FEEA3A ;
+    font-family: 'Quicksand', sans-serif;
+    border:none;
+  }
+
+
+}
+
+@media (max-width: $screen-xs-max) {
+
+  #parentContainer {
+
+    img {
+      position: relative;
+      top: 80px;
+      left: 110px
+
+    }
+  }
+
+  #mainContainer {
+
+    width: 90%;
+
+    h1 {
+      text-align: center;
+    }
+  }
+
+  #form {
+    input {
+      width: 90%;
+    }
+
+  }
+}
+@media (min-width: $screen-sm-min) {
+
+}
+@media (max-width: $screen-sm-max) {
+
+}
+@media (min-width: $screen-md-min) {
+
+}
+@media (max-width: $screen-md-max) {
+
+}
+@media (min-width: $screen-lg-min) {
+
+}

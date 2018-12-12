@@ -1,0 +1,124 @@
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+}
+
+#parentContainer {
+  background-color: #333333;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 100%;
+  width: 100%;
+  -ms-flex-direction: column;
+      flex-direction: column;
+}
+
+#parentContainer img {
+  position: relative;
+  top: 80px;
+  left: 305px;
+}
+
+#mainContainer {
+  background-color: #FEEA3A;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 720px;
+  height: 200px;
+}
+
+#mainContainer h1 {
+  font-family: 'Sofia', cursive;
+}
+
+#form {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100px;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+#form input {
+  width: 600px;
+  padding: 10px;
+  font-size: 15px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+          box-shadow: rgba(0, 0, 0, 0.5) 0 0 10px;
+  border: none;
+  font-family: 'Quicksand', sans-serif;
+}
+
+#buttonForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 200px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+}
+
+#buttonForm button {
+  background-color: #FEEA3A;
+  font-family: 'Quicksand', sans-serif;
+  border: none;
+}
+
+@media (max-width: 767px) {
+  #parentContainer img {
+    position: relative;
+    top: 80px;
+    left: 110px;
+  }
+
+  #mainContainer {
+    width: 90%;
+  }
+
+  #mainContainer h1 {
+    text-align: center;
+  }
+
+  #form input {
+    width: 90%;
+  }
+}
+
