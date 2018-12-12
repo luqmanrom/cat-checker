@@ -17,7 +17,11 @@ export default class Form extends Component {
 	}
 
 	onChange(event) {
-		this.setState({input: event.target.value});
+
+		if (!(event.target.value.length > 5000)) {
+			this.setState({input: event.target.value});
+
+		}
 	}
 
 	onSubmit(event) {

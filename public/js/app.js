@@ -40814,7 +40814,10 @@ var Form = function (_Component) {
 	_createClass(Form, [{
 		key: 'onChange',
 		value: function onChange(event) {
-			this.setState({ input: event.target.value });
+
+			if (!(event.target.value.length > 5000)) {
+				this.setState({ input: event.target.value });
+			}
 		}
 	}, {
 		key: 'onSubmit',
